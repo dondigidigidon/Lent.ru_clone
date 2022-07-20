@@ -1,0 +1,969 @@
+@font-face {
+    font-family: "SFProDisplay-Regular"; 
+    src: url("FontsFree-Net-SFProDisplay-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+body {
+    font-family: sans-serif;
+    background-color: white;
+}
+
+/* Обёртка под все (подложка) */
+.wrapper {
+    display: flex;
+    flex-direction: row;
+
+    height: 1185px;
+    width: 100%;
+    /* outline: 2px solid rgb(178, 97, 255); */
+
+    /* background-color: darkcyan; */
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Подложка под контейнер (под сайд-бар) */
+.sidebar {
+    /* outline: 3px solid blue; */
+    background-color: rgb(40,40,40);
+}
+
+/* Контейнер под сайд-бар (слева)*/
+.sidebar_content {
+    /* Прилипание */
+    position: sticky;
+    
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    max-width: 200px;
+}
+
+/* Меню в сайд-баре (14 пунктов) */
+.main-nav {
+    max-height: 300px;
+    max-width: 200px;
+
+    /* outline: 1px solid red; */
+
+    background-color: rgb(40, 40, 40);
+
+    display: flex;
+    flex-direction: column
+}
+/* "Главное" в сайд-баре */
+.general {
+    margin-top: 15px;
+
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    /* Красная строка */
+    text-indent: 19px;
+    /* Межстрочный интервал */
+	line-height: 1.3;
+
+    font-size: 13px;
+}
+/* Остальные слова в сайд-баре */
+.secondary-word {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    /* Красная строка */
+    text-indent: 19px;
+    /* Межстрочный интервал */
+	line-height: 1.3;
+
+    font-size: 13px;
+}
+
+/* Соц. сети */
+.social {
+    margin-block: 20px;
+    width: 200px;
+
+    display: flex;
+    flex-direction: row;
+
+    /* outline: 1px solid blue; */
+
+    background-color: rgb(40, 40, 40);
+}
+/* Иконки в соц. сетях */
+.bottom-social {
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    /* outline: 1px solid red; */
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-inline: 2.8px;
+}
+.first-social {
+    margin-left: auto;
+}
+.last-social {
+    margin-right: auto;
+}
+
+
+
+/* Бэки иконок */
+.first-social {
+    width: 20px;
+    height: 20px;
+    background-image: url(icon-vk.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+.second-social {
+    width: 20px;
+    height: 20px;
+    background-image: url(facebook.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+.third-social {
+    width: 20px;
+    height: 20px;
+    background-image: url(twitter.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+.fourth-social{
+    width: 20px;
+    height: 20px;
+    background-image: url(одноклассники.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+.fifth-social{
+    width: 20px;
+    height: 20px;
+    background-image: url(youtube.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+.sixth-social{
+    width: 20px;
+    height: 20px;
+    background-image: url(tg-6.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+.last-social{
+    width: 20px;
+    height: 20px;
+    background-image: url(instagram.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+
+
+
+/* Форма */
+.form {
+    /* необходимо для создания координат (заточения) "лупы" внутри поиска, по сколько на лупе работает позиция абсолют и она может покинуть форму */
+    position: relative;
+    /* Выравнивание по центру  */
+    align-self: center;
+    background-color: rgb(40, 40, 40);
+}
+/* Поиск внутри формы */
+.search {
+    background-color: rgb(40, 40, 40);
+    box-sizing: border-box;
+    border: 2px solid grey;
+    border-radius: 3px;
+
+    height: 25px;
+    max-width: 150px;
+
+    /* Внешнее выделение (браузерное) */
+    outline: none;
+}
+/* Лупа внутри поиска */
+.magnifying_glass {
+    /* Втискивание блока (с падингом, марджином или рамками) в родительский контейнер */
+    box-sizing: border-box;
+
+    /* Рамки */
+    border: 2px solid grey;
+    
+    /* Боковые рамки: 0 */
+    border: 0;
+    
+    /* Прозрачность элемента */
+    background-color: transparent;
+    
+    height: 25px;
+    width: 25px;
+    
+    /* Смена курсора на поинтер */
+    cursor: pointer;
+
+    position: absolute;
+    right: 0;
+}
+/* Фон лупы внутри поиска */
+.magnifying_glass-icon {
+    /* Позиция фона: оцентровка */
+    background-position: center;
+
+    /*Отключение повторения фона (из-за увеличения габаритов отцовского блока)*/
+    background-repeat: no-repeat;
+
+    /* Фон-лупы */
+    background-image: url(поиск-главная.svg);
+
+    /* Размер фона: вместить */
+    background-size: contain;
+
+    /* Прозрачность */
+    opacity: 0.15;
+
+    /* Превращение элемента в блочный */
+    display: block;
+
+    /* Габариты (100%) взяты от родительского */
+    width: 100%;
+    height: 100%;
+
+}
+/* Смена фона при наведении */
+.magnifying_glass:hover .magnifying_glass-icon{
+    opacity: 0.4;
+}
+
+/* Войти в Мою Ленту */
+.account {
+    height: 20px;
+    max-width: 200px;
+    text-indent: 19px;
+    margin-top: 17px;
+    color: grey;
+    background-color: rgb(40, 40, 40);
+
+    /* outline: 1px solid blue; */
+
+    font-size: 13px;
+}
+/* сам текст в контейнере */
+.account_text {
+    text-decoration: none;
+    color: white;
+}
+
+/* Второе меню в сайд-баре (6 пунктоов) */
+.secondary-nav {
+    margin-top: 17px;
+
+    max-width: 250px;
+
+    /* outline: 1px solid red; */
+
+    background-color: rgb(40, 40, 40);
+
+    display: flex;
+    flex-direction: column;
+}
+/* Первые 5 пунктов */
+.grey-word {
+    color: grey;
+    /* Подчеркивание */
+    text-decoration: none;
+    /* Изменение курсора */
+    cursor: pointer;
+    /* Красная строка */
+    text-indent: 19px;
+    /* Межстрочный интервал */
+    line-height: 1.6;
+
+    font-size: 13px;
+}
+/* Последняя фраза */
+.last-word {
+    color: white;
+    /* Подчеркивание */
+    text-decoration: none;
+    /* Изменение курсора */
+    cursor: pointer;
+    /* Красная строка */
+    text-indent: 19px;
+    /* Межстрочный интервал */
+    line-height: 1.6;
+    /* Жирный шрифт */
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+/* Подложка под СВИТЧ (в самом низу сайд-бара) */
+.wrapper_kind-switch {
+    margin-top: auto;
+    margin-bottom: 15px;
+    width: 200px;
+    height: 45px;   
+
+    display: flex;
+    align-items: center;
+    justify-content: center
+ 
+}
+/* Контейнер под Ленту добра и СВИТЧ */
+.kind-switch {
+    width: 190px;
+    height: 45px;
+    background-color: white;
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    cursor: pointer;
+}
+/* Лента добра */
+.kind-text {
+    color: rgb(40, 40, 40);
+    /* Жирный шрифт */
+    font-weight: bold;
+
+    font-size: 13px;
+}
+/* СВИТЧ */
+.bottom-switch {
+    width: 55px;
+    height: 25px;
+    border-radius: 30px;
+    background-color: rgb(40,40,40);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/* Круг в кнопке */
+.circle_in_the-bottom-switch {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: white;
+    margin-left: 3px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Центральная подложка под central_top и central_bottom */
+.wrapper_central {
+    display: flex;
+    flex-direction: column;
+
+    height: 1185px;
+    flex-grow: 1;
+    /* outline: 1px solid blue; */
+    padding: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Верхняя часть подложки (central_top)*/
+.central_top {
+    /* outline: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    /* height: 440px; */
+    /* width: 1250px; */
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Внутренняя часть central_top */
+
+
+/* Контейнер под дату и время, и Ленту */
+.container_for_lenta_and_date_and_time {
+    display: flex;
+    flex-direction: row;
+    /* outline: 1px solid red; */
+    
+    margin-bottom: 20px;
+    
+    align-items: flex-end;
+
+    margin-left: 10px;
+}
+
+/* Блок с Лентой */
+.lenta {
+    cursor: pointer;
+    /* outline: 1px solid blue; */
+    height: 70px;
+    display: flex;
+    flex-direction: row-reverse;
+
+    background-image: url(lenta.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* Разместить фон по низу */
+    background-position: right;
+
+    height: 40px;
+    width: 180px;
+
+    /* Размещение фото, вариации */
+    
+    /* background-size: cover;
+    background-position: center; */
+
+    /* background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+
+    /* background-position: bottom 10px right 40px;
+    background-size: 60px 120px;
+    background-repeat: no-repeat; */
+}
+/* Дата и время */
+.date_and_time {
+    /* outline: 1px solid red; */
+    width: 150px;
+    color: gray;
+    flex-direction: row;
+    font-size: 11px;
+    margin-left: 30px;
+
+/* Пространство между буквами */
+    letter-spacing: 1px;
+
+    padding: 2px;
+
+}
+
+/* Разделитель(ная полоса) */
+.hr_central {
+    border: 0;
+    border-top: 7px solid black;
+    /* width: 100%; */
+    height: 1px;
+    margin: 0;
+    margin-left: -20px;
+    margin-right: -50px;
+}
+
+/* Баннер */
+.banner {
+    /* outline: 1px solid greenyellow; */
+    display: flex;
+
+    min-height: 300px;
+    width: 100%;
+    /* альтернативный размер */
+    /* min-height: 42vh; */
+    /* width: 88vw; */
+
+    background-image: url(banner.png);
+    background-repeat: no-repeat;
+
+    /* Вместить (вместо подбора масштаба) */
+    background-size: contain;
+
+    background-position: center;
+    margin-top: 10px;
+    margin-inline: auto;
+    cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Нижняя часть подложки (central_bottom)*/
+.central_bottom {
+    min-height: 600px;
+    width: 100%;
+
+    /* outline: 1px solid peru; */
+    display: flex;
+    margin-top: 50px;
+
+    justify-content: center;
+    gap: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Внутренняя часть central_bottom */
+
+/* Блок 1 */
+.block1 {
+    /* margin-left: 20px; */
+    /* outline: 1px solid forestgreen; */
+    display: flex;
+    flex-direction: column;
+
+    min-height: 540px;
+    /* Коэф. растяжения дает "гибкую ширину" (без рамок к расширению) */
+    /* flex-grow: 1; */
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+/* Внутренняя часть block1 */
+
+
+/* Фото_превью */
+.photo_preview {
+    height: 180px;
+    width: 100%;
+
+    background-image: url(title\ photo.jpg);
+    background-repeat: no-repeat;
+    /* background-size: 100%;
+    background-position: center; */
+}
+
+
+
+/* Обертка под новостное Превью */
+.general_news {
+    margin-top: 20px;
+    width: 300px;
+    /* height: 140px; */
+    /* outline: 1px solid fuchsia; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* overflow: hidden; */
+    /* word-wrap: break-word; */
+    /* word-break: break-all; */
+    /* white-space: pre-wrap; */
+    /* word-spacing: normal; */
+}
+/* Время (внутри превью) */
+.bold_time {
+    margin-top: 10px;
+    /* outline: 1px solid red; */
+    /* width: 50px; */
+    color: red;
+    /* flex-direction: row; */
+    font-size: 15px;
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+}
+/* Текст (внутри превью) */
+.bold_text {
+    /* outline: 1px solid ; */
+    /* width: 150px; */
+    color: black;
+    /* flex-direction: row; */
+    font-size: 20px;
+    font-weight: bold;
+    /* white-space: pre-wrap; */
+    /* row-gap: unset; */
+    /* margin-left: 10px; */
+
+    /* Пространство/расстояние между строками */
+    line-height: 30px;
+    cursor: pointer;
+    font-family: "Oranienbaum-Regular.ttf";
+}
+
+
+
+/* Обертка под закладку и ленту */
+.wrapper_figure_and_my_lent {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+/* Закладка */
+.bookmark {
+    width: 17px;
+    height: 17px;
+    background-image: url(закладка-главная.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
+/* Добавить в "Мою Ленту" */
+.my_lent {
+    /* outline: 1px solid gold; */
+    color: gray;
+    font-size: 10px;
+    /* font-weight: bold; */
+
+/* Пространство между буквами */
+    letter-spacing: 1px;
+
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 2px;
+
+    font-family: "Lato-LightItalic.ttf";
+    src: url("FontsFree-Net-SFProDisplay-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+
+.hr_central_bottom {
+    border: 0;
+    border-top: 1px solid gray;
+    height: 1px;
+
+    margin-top: 10px;
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+
+
+/* Остальные новостные Превью */
+.secondary_news {
+    margin-top: 20px;
+    width: 300px;
+    /* outline: 1px solid gold; */
+    cursor: pointer;
+
+    /* font-family: "Oranienbaum-Regular.ttf";
+    src: url("FontsFree-Net-SFProDisplay-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;  */
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Время (внутри secondary_news) */
+.secondary_time {
+    margin-top: 5px;
+    /* outline: 1px solid deeppink; */
+    color: red;
+    font-size: 12px;
+    float: left;
+    margin-right: 10px;
+
+    font-weight: bold;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Текст (внутри secondary_news) */
+.secondary_text {
+    /* outline: 1px solid greenyellow; */
+    color: black;
+    font-size: 17px;
+
+    /* Пространство/расстояние между строками */
+    line-height: 14px;
+    cursor: pointer;
+
+    /* font-weight: bold; */
+
+    font-family: "Oranienbaum-Regular.ttf";
+    src: url("FontsFree-Net-SFProDisplay-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+
+    /* Растянуть текст по ширине, увеличив расстояние между буквами */
+    letter-spacing: 0.3px;
+
+    /* Расстояние между строчками по вертикали */
+    line-height: 19px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Внешняя ссылка */
+.secondary_news_figure {
+    background-image: url(внешняя-ссылка-главная.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+    cursor: pointer;
+
+    /* Перевод из блочного в строчно-блочный (строчный) */
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+
+    /* Оцентровать элемент по вертикале относительно строки */
+    vertical-align: middle;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Блок 2 */
+.block2 {
+    /* outline: 1px solid forestgreen; */
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 540px;
+    /* flex-grow: 1; */
+}
+/* Плей рядом с новостью */
+.secondary_news_figure_play_video {
+    background-image: url(play-button-1.png);
+    background-repeat: no-repeat;
+    background-size: 95%;
+    background-position: center;
+
+    cursor: pointer;
+
+    /* Перевод из блочного в строчно-блочный (строчный) */
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+
+    /* Оцентровать элемент по вертикале относительно строки */
+    vertical-align: middle;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Блок 3 */
+.block3 {
+    /* outline: 1px solid forestgreen; */
+    display: flex;
+    flex-direction: column;
+
+    min-height: 540px;
+    /* flex-grow: 1; */
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Обертка под курс ЦБ */
+.wrapper_kurs_cb {
+    display: flex;
+    flex-direction: row;
+    /* outline: 1px solid slateblue; */
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 13px;
+    padding-left: 0px;
+}
+
+
+/* Курс ЦБ */
+.kurs_cb {
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
+
+    margin-left: 0px;
+    margin-right: 17px;
+    
+}
+
+/* Обертка под курс доллара */
+.wrapper_kurs_dollar {
+    display: flex;
+    flex-direction: row;
+    /* outline: 1px solid salmon; */
+    align-items: center;
+
+    margin-right: 17px;
+}
+
+/* Символ - доллар */
+.dollar_figure {
+    background-image: url(dollar-24.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+    cursor: pointer;
+
+    /* Перевод из блочного в строчно-блочный (строчный) */
+    /* display: inline-block; */
+    width: 30px;
+    height: 30px;
+}
+/* Цифра валюты доллар */
+.kurs {
+    color: gray;
+    font-size: 15px;
+
+    margin-left: 4px;
+}
+/* Вектор */
+.vector_figure {
+    background-image: url(vector-padenie.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 13px;
+    background-position: center;
+
+    cursor: pointer;
+
+    /* Перевод из блочного в строчно-блочный (строчный) */
+    /* display: inline-block; */
+    width: 15px;
+    height: 15px;
+}
+
+
+
+
+/* Обертка под курс евро */
+.wrapper_kurs_euro {
+    display: flex;
+    flex-direction: row;
+    /* outline: 1px solid salmon; */
+    align-items: center
+}
+
+/* Символ - евро */
+.euro_figure {
+    background-image: url(evro-24.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+    cursor: pointer;
+
+    /* Перевод из блочного в строчно-блочный (строчный) */
+    /* display: inline-block; */
+    width: 30px;
+    height: 30px;
+}
+/* Цифра валюты евро */
+.kurs_2 {
+    color: gray;
+    font-size: 15px;
+
+    margin-left: 4px;
+}
+/* Вектор */
+.vector_2_figure {
+    background-image: url(vector-padenie.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 13px;
+    background-position: center;
+
+    cursor: pointer;
+
+    /* Перевод из блочного в строчно-блочный (строчный) */
+    /* display: inline-block; */
+    width: 15px;
+    height: 15px;
+}
+
+
+
+/* Колористическая обертка под ГЛАВНЫЕ НОВОСТИ */
+.wrapper_color_news_bottom_right {
+    /* outline: rgb(255, 205, 144); */
+}
+
+/* Контейнер под ГЛАВНЫЕ НОВОСТИ */
+.container_general_news_bottom_right {
+    border-top: 3px solid red;
+    padding: 15px;
+    background-color: rgb(255, 205, 144);
+    display: flex;
+}
+
+/* ГЛАВНЫЕ НОВОСТИ (текст)*/
+.general_news_bottom_right_text {
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Контейнер под прочие новости ниже */
+.container_secondary_news_bottom_right {
+    /* margin-top: 10px; */
+    width: 300px;
+    /* outline: 1px solid gold; */
+    cursor: pointer;
+
+    padding: 14px;
+    display: flex;
+    
+    /* Альтернативное растягивание текста по горизонтали */
+    margin-inline: -4px;
+}
+
+/* Текст прочих новостей ниже */
+.secondary_text_bottom_right {
+    /* outline: 1px solid greenyellow; */
+    color: black;
+    /* font-size: 15px; */
+
+    /* Пространство/расстояние между строками */
+    /* line-height: 14px; */
+    cursor: pointer;
+
+    /* font-weight: bold; */
+
+    font-family: "Oranienbaum-Regular.ttf";
+    src: url("FontsFree-Net-SFProDisplay-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+
+    /* Растянуть текст по ширине (для больших текстов) */
+    /* text-align: justify; */
+
+    /* Растянуть текст по ширине, увеличив расстояние между буквами */
+    /* letter-spacing: 0.5px; */
+
+    line-height: 19px;
+}
+
+/* Разделительные полосы между прочими новостями */
+.hr_bottom_right {
+    border: 0;
+    border-top: 1px solid gray;
+    height: 1px;
+
+    width: 93%;
+    align-content: center;
+    
+    /* margin-top: 10px;
+    margin-inline: 0px;
+    margin-bottom: 0px; */
+}
+
+/* Внешняя ссылка 2 */
+.secondary_news_figure_2 {
+    background-image: url(внешняя-ссылка-главная.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+    cursor: pointer;
+
+    /* Перевод из блочного в строчно-блочный (строчный) */
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+}
+
+
+/* -------------------------------------------------------------------------- */
